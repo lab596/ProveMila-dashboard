@@ -1,10 +1,16 @@
 package ui30;
 
 import android.content.Intent;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+//import java.swing.timer;
+import java.util.EventListener;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,16 +54,54 @@ public class MainActivity extends AppCompatActivity {
         bottomRightTire = findViewById(R.id.rightTP_bottom);
         topLeftTire = findViewById(R.id.leftTP_top);
         bottomLeftTire = findViewById(R.id.leftTP_bottom);
-        battery = findViewById(R.id.battery_text);
+        battery = (TextView)findViewById(R.id.battery_text);
         speed = findViewById(R.id.speed_text);
         range = findViewById(R.id.range_text);
         batteryTemp = findViewById(R.id.batteryTemp);
         motorTemp = findViewById(R.id.motorTemp);
-        //topLeftTire.setText("deez");
+        testSwingTimer();
+
+        //textView.setOnClickListener(new View.OnClickListener());
+//        battery.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                boolean ye = true;
+//                int i = 0;
+//                battery.setText("69");
+////                while (ye) {
+////                    battery.setText(i);
+////                    i++;
+////                }
+//            }
+//        });
+
     }
 
     public void openSettings() {
         Intent intent = new Intent(this, MainSetting.class);
         startActivity(intent);
     }
+    public void testSwingTimer() {
+        final Handler handler = new Handler();
+        TimerTask task = new TimerTask() {
+            int count = 0;
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        battery.setText(String.valueOf(count));
+                        count++;
+//                        if (count > 10) {
+//                            cancel();
+//                        }
+                    }
+                });
+            }
+        };
+        Timer t = new Timer("Timer");
+        t.schedule(task, 0, 1000);
+    }
+
+
 }
