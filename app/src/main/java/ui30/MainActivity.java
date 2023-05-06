@@ -90,18 +90,27 @@ public class MainActivity extends AppCompatActivity {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        battery.setText(String.valueOf(count));
-                        count++;
-//                        if (count > 10) {
-//                            cancel();
-//                        }
+                        battery.setText(String.valueOf(sendNums()));
+
+                    }
+
+                    public int sendNums() {
+                        int min = 0;
+                        int max = 300;
+
+                        int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
+                        return random_int;
                     }
                 });
+
+
             }
-        };
-        Timer t = new Timer("Timer");
-        t.schedule(task, 0, 1000);
+
+            };
+            Timer t = new Timer("Timer");
+            t.schedule(task, 0, 1000);
+        }
     }
 
 
-}
+
