@@ -146,4 +146,36 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainSetting.class);
         startActivity(intent);
     }
-}
+
+
+    public void testSwingTimer() {
+        final Handler handler = new Handler();
+        TimerTask task = new TimerTask() {
+            int count = 0;
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        battery.setText(String.valueOf(sendNums()));
+
+                    }
+
+                    public int sendNums() {
+                        int min = 0;
+                        int max = 300;
+
+                        int random_int = (int)Math.floor(Math.random() * (max - min + 1) + min);
+                        return random_int;
+                    }
+                });
+
+
+            }
+
+            };
+            Timer t = new Timer("Timer");
+            t.schedule(task, 0, 1000);
+        }
+    }
+    
