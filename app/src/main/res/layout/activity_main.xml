@@ -255,7 +255,6 @@
             android:layout_width="75dp"
             android:layout_height="92dp"
             android:layout_marginStart="92dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/imageView19"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/settings_icon" />
@@ -264,8 +263,8 @@
             android:id="@+id/imageView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
-            android:layout_marginBottom="700dp"
+            android:layout_marginStart="84dp"
+            android:layout_marginBottom="740dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -318,6 +317,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:constraint_referenced_ids="imageView17,coolantPressure6,amps6,text7,imageView18,imageView19,motortemp6,battery6,coolantTemp6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
